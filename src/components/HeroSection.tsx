@@ -15,20 +15,14 @@ const HeroSection = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
           <span className="gradient-text">Cricket Analysis</span>
           <br />
           <span className="text-foreground">Community</span>
         </h1>
 
-        {/* Subheading */}
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Join our community for cricket match discussions, team statistics, 
-          pitch reports, and expert opinions. Educational content only.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        {/* CTA Button - Below Title */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a
             href="https://telegram.me/+Sh0wI818fgczNjZl"
             target="_blank"
@@ -36,10 +30,16 @@ const HeroSection = () => {
             className="glow-button flex items-center gap-3 group"
           >
             <Users size={20} />
-            <span>Join Community</span>
+            <span>Join Telegram Community</span>
             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
           </a>
         </div>
+
+        {/* Subheading */}
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
+          Join our community for cricket match discussions, team statistics, 
+          pitch reports, and expert opinions. Educational content only.
+        </p>
 
         {/* Small Text */}
         <p className="text-sm text-muted-foreground">
