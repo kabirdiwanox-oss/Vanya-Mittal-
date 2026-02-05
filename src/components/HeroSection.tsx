@@ -1,8 +1,37 @@
 import { ArrowRight, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const TELEGRAM_LINK = 'https://telegram.me/+Sh0wI818fgczNjZl';
 
 const HeroSection = () => {
+  const [countdown, setCountdown] = useState(4);
+  const [redirecting, setRedirecting] = useState(true);
+
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (redirecting) {
+      window.open(TELEGRAM_LINK, '_blank');
+      setRedirecting(false);
+    }
+  }, [countdown, redirecting]);
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-4">
+      {/* Redirect Timer Banner */}
+      {redirecting && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 glass-card px-6 py-3 rounded-full border border-primary/30 animate-fade-in">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+              <span className="text-primary font-bold">{countdown}</span>
+            </div>
+            <span className="text-sm text-muted-foreground">
+              {countdown > 0 ? 'Redirecting to Telegram...' : 'Opening Telegram...'}
+            </span>
+          </div>
+        </div>
+      )}
+
       {/* Gradient Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cosmic-purple/20 rounded-full blur-[120px] animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cosmic-cyan/20 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-3s' }} />
@@ -24,7 +53,7 @@ const HeroSection = () => {
         {/* CTA Button - Below Title */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a
-            href="https://telegram.me/+Sh0wI818fgczNjZl"
+            href={TELEGRAM_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="glow-button flex items-center gap-3 group"
