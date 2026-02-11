@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const TELEGRAM_LINK = 'https://telegram.me/+Sh0wI818fgczNjZl';
 
 const HeroSection = () => {
-  const [countdown, setCountdown] = useState(4);
+  const [countdown, setCountdown] = useState(300);
   const [redirecting, setRedirecting] = useState(true);
 
   useEffect(() => {
