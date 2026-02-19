@@ -9,7 +9,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      const timer = setTimeout(() => setCountdown(countdown - 1), 3);
       return () => clearTimeout(timer);
     } else if (redirecting) {
       window.open(TELEGRAM_LINK, '_blank');
