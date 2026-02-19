@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react';
 const TELEGRAM_LINK = 'https://telegram.me/+Sh0wI818fgczNjZl';
 
 const HeroSection = () => {
-  const [countdown, setCountdown] = useState(300);
+  const [countdown, setCountdown] = useState(4);
   const [redirecting, setRedirecting] = useState(true);
 
   useEffect(() => {
     if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 3);
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(timer);
     } else if (redirecting) {
-      window.open(TELEGRAM_LINK, '_blank');
+      window.location.href = TELEGRAM_LINK;
       setRedirecting(false);
     }
   }, [countdown, redirecting]);
